@@ -20,11 +20,42 @@
         <img src="mercedes-3.jpg" width="400" height="200" alt="Car S-Class" />
         <figcaption>New design</figcaption>
     </figure>
-    <svg width="400" height="110">
-      <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+    <svg width="400" height="250">
+      <rect x="30" y="10" rx="40" ry="60" width="300" height="150" 
+            style="fill:yellow;troke-width:3;stroke:blue;stroke-width:5;stroke-opacity:1;fill-opacity:0.5" />
     </svg>
+    <svg width="250" height="250">
+        <polygon points="100,20 200,80 120,180"
+            style="fill:green;stroke:black;stroke-width:3" />
+        <polygon points="120,40 220,100 140,200"
+            style="fill:red;stroke:black;stroke-width:3" />
+        <polygon points="140,60 240,120 160,220"
+            style="fill:blue;stroke:black;stroke-width:3" />
+    </svg>
+    <br>
+    <svg wigth="200" height="250">
+        <text x="10" y="20" fill="purple" transform="rotate(40 20,40)">MERCEDES BENZ S-Class</text>
+    </svg>
+    <svg width="200" height="200">
+        <defs>
+            <filter id="filter" x="0" y="0">
+      <feGaussianBlur stdDeviation="5" />
+      <feOffset dx="5" dy="5" />
+            </filter>
+        </defs>
+      <circle cx="100" cy="100" r="80" fill="brown" filter="url(#filter)" />
+      <circle cx="90" cy="90" r="80" fill="red" stroke="black" />
+    </svg>
+    <svg width="500" height="500">
+  <rect id="rec" x="300" y="200" width="300" height="100" style="fill:green"> 
+    <animate attributeName="x" attributeType="XML" begin="0s" dur="8s" fill="freeze" from="300" to="0" /> 
+    <animate attributeName="y" attributeType="XML" begin="0s" dur="8s" fill="freeze" from="100" to="0" /> 
+    <animate attributeName="width" attributeType="XML" begin="0s" dur="8s" fill="freeze" from="300" to="800" /> 
+    <animate attributeName="height" attributeType="XML" begin="0s" dur="s" fill="freeze" from="100" to="300" /> 
+    <animate attributeName="fill" attributeType="CSS" from="lime" to="yellow" begin="3s" dur="3s" fill="freeze" />
+  </rect>
+  </svg>
         <br>
-    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
         <br>
     <video width="600" height="400" autoplay controls>
         <source src="http://vs1.i.ua/v/70fb4/2/59f479d0/621f5fd0/462772.flv.mp4" type="video/mp4">
@@ -34,7 +65,40 @@
         <br>
     <audio src="monalisa-mp3.mp3" controls="controls">
     </audio>
-
+    <br>
+    <canvas id="myCanvas" width="200" height="100"
+        style="border:1px solid #d3d3d3;">
+    </canvas>
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var grd = ctx.createLinearGradient(10,10,150,50);
+            grd.addColorStop(0,"green");
+            grd.addColorStop(1,"yellow");
+            ctx.fillStyle = grd;
+            ctx.fillRect(10,10,150,80);
+            </script>
+    <canvas id="lineCanvas" width="200" height="100"
+        style="border:5px solid red;">
+    </canvas>
+    <script>
+        var canvas = document.getElementById("lineCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.moveTo(10,0);
+        ctx.lineTo(200,100);
+        ctx.stroke();
+    </script>
+    <canvas id="textCanvas" width="300" height="100"
+        style="border:1px solid blue;">
+    </canvas>
+    <script>
+var canvas = document.getElementById("textCanvas");
+var ctx=canvas.getContext("2d");
+ctx.font="20px Imprint MT Shadow";
+ctx.fillStyle = "blue";
+ctx.textAlign = "center";
+ctx.fillText("Mercedes BENZ S-Class", canvas.width/2, canvas.height/2);
+</script>
     
 </body>
 </html>
